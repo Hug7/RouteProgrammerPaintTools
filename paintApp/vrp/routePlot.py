@@ -27,8 +27,12 @@ def route_showV1(routeSol, pickupSol, deliverySol):
             pickupDict['Y'].append(pickup['lat'])
         # plt.plot(pickupDict['X'], pickupDict['Y'])
         plt.scatter(pickupDict['X'], pickupDict['Y'], marker='h', s=200)
-        plt.scatter(deliveryDict['X '], deliveryDict['Y'], s=50)
-        plt.plot(pickupDict['X'] + deliveryDict['X'], pickupDict['Y'] + deliveryDict['Y'])
+        plt.scatter(deliveryDict['X'], deliveryDict['Y'], s=50)
+        plt.plot(pickupDict['X'] + deliveryDict['X'], pickupDict['Y'] + deliveryDict['Y'], label=''.join(["线路", str(u)]))
+        plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
+        plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+    plt.legend()
+    plt.grid()
     plt.show()
 
 
